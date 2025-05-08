@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>LuxFinance - Solutions de Prêt Haut de Gamme</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -1258,7 +1258,111 @@ input[type="range"]::-webkit-slider-thumb:hover {
         width: 100%;
     }
 }
+/* ========== RESPONSIVE 360px ========== */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 15px;
+    }
 
+    .hero-content h1 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .simulator-card,
+    .results-sidebar,
+    .contact-form {
+        padding: 20px 15px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .service-card {
+        padding: 25px 15px;
+    }
+
+    .advantage-item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .advantage-icon {
+        margin-bottom: 15px;
+    }
+
+    .testimonial-card {
+        padding: 25px 15px;
+    }
+
+    .cta-actions {
+        flex-direction: column;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-about .logo {
+        justify-content: center;
+    }
+
+    .footer-social {
+        justify-content: center;
+    }
+
+    .navbar .container {
+        height: 60px;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .nav-links {
+        top: 60px;
+        height: calc(100vh - 60px);
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero-slider .swiper-slide {
+        min-height: 600px;
+    }
+}
 </style>
 <body>
     
@@ -1658,7 +1762,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
                 </div>
                 <div class="cta-actions">
                     <a href="#contact" class="btn btn-primary btn-large">
-                        <i class="fas fa-phone-alt"></i> 01 23 45 67 89
+                        <i class="fas fa-phone-alt"></i> structurefinanciere787@gmail.com
                     </a>
                     <a href="#contact" class="btn btn-outline btn-large">
                         <i class="fas fa-envelope"></i> Nous écrire
@@ -1694,7 +1798,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
                         </div>
                         <div class="info-content">
                             <h3>Téléphone</h3>
-                            <p>01 23 45 67 89</p>
+                            <p>structurefinanciere787@gmail.com</p>
                             <p>Lun-Ven : 9h-19h</p>
                         </div>
                     </div>
@@ -2078,57 +2182,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
             });
         });
         
-        // Formulaire de contact
-        // document.getElementById('contact-form').addEventListener('submit', function(e) {
-        //     e.preventDefault();
-            
-        //     const form = this;
-        //     const formMessage = document.getElementById('form-message');
-        //     const name = document.getElementById('name').value;
-        //     const email = document.getElementById('email').value;
-        //     const subject = document.getElementById('subject').value;
-        //     const message = document.getElementById('message').value;
-            
-            // Validation simple
-            // if (!name || !email || !message) {
-            //     formMessage.textContent = 'Veuillez remplir tous les champs obligatoires.';
-            //     formMessage.className = 'form-message error';
-            //     return;
-            // }
-            
-            // Envoi avec SMTP.js
-            // Email.send({
-            //     SecureToken: "YOUR_SECURE_TOKEN", // À remplacer par votre token
-                // To: 'victoiretogbe43@gmail.com',
-                // From: email,
-                // Subject: `Message de ${name} - ${subject}`,
-                // Body: `
-                //     <h2>Nouveau message de contact</h2>
-                //     <p><strong>Nom :</strong> ${name}</p>
-                //     <p><strong>Email :</strong> ${email}</p>
-                //     <p><strong>Sujet :</strong> ${subject}</p>
-                //     <p><strong>Message :</strong></p>
-                //     <p>${message}</p>
-                // `
-            // }).then(
-            //     () => {
-            //         formMessage.textContent = 'Message envoyé avec succès ! Nous vous contacterons rapidement.';
-            //         formMessage.className = 'form-message success';
-            //         form.reset();
-                    
-                    // Masquer le message après 5 secondes
-            //         setTimeout(() => {
-            //             formMessage.style.display = 'none';
-            //         }, 5000);
-            //     },
-            //     (error) => {
-            //         formMessage.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.';
-            //         formMessage.className = 'form-message error';
-            //         console.error('Error:', error);
-            //     }
-            // );
-        // });
-        
+       
         // Animation GSAP
         gsap.registerPlugin(ScrollTrigger);
         
@@ -2171,63 +2225,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
             delay: 0.3
         });
     });
-    // Configuration et envoi du formulaire
-    // document.getElementById('contactForm').addEventListener('submit', function(e) {
-    //     e.preventDefault();
-        
-    //     const submitBtn = document.getElementById('submitBtn');
-    //     const formMessage = document.getElementById('formMessage');
-        
-        // Récupération des valeurs
-        // const formData = {
-        //     name: document.getElementById('contactName').value,
-        //     email: document.getElementById('contactEmail').value,
-        //     phone: document.getElementById('contactPhone').value,
-        //     subject: document.getElementById('contactSubject').value,
-        //     message: document.getElementById('contactMessage').value
-        // };
-        
-        // Validation
-        // if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-        //     showMessage('Veuillez remplir tous les champs obligatoires', 'error');
-        //     return;
-        // }
-        
-        // Désactiver le bouton pendant l'envoi
-        // submitBtn.disabled = true;
-        // submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-        
-        // Envoi AJAX
-        // const xhr = new XMLHttpRequest();
-        // xhr.open('POST', 'send_email.php', true);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        
-        // xhr.onload = function() {
-        //     submitBtn.disabled = false;
-        //     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
-            
-        //     if (this.status === 200) {
-        //         const response = JSON.parse(this.responseText);
-        //         if (response.success) {
-        //             showMessage('Message envoyé avec succès !', 'success');
-        //             document.getElementById('contactForm').reset();
-        //         } else {
-        //             showMessage('Erreur: ' + response.message, 'error');
-        //         }
-        //     } else {
-        //         showMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
-        //     }
-        // };
-        
-        // xhr.onerror = function() {
-        //     submitBtn.disabled = false;
-        //     submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
-        //     showMessage('Erreur de connexion. Veuillez réessayer.', 'error');
-        // };
-        
-        // xhr.send(JSON.stringify(formData));
-    // });
-    
+
     function showMessage(text, type) {
         const formMessage = document.getElementById('formMessage');
         formMessage.textContent = text;
@@ -2243,72 +2241,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
             }, 500);
         }, 5000);
     }
-    // document.getElementById('contactForm').addEventListener('submit', function(e) {
-    //     e.preventDefault();
-        
-    //     const submitBtn = document.getElementById('submitBtn');
-    //     const formMessage = document.getElementById('formMessage');
-    //     const originalBtnText = submitBtn.innerHTML;
-        
-        // Show loading state
-        // submitBtn.disabled = true;
-        // submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-        // formMessage.style.display = 'none';
-        
-        // Get form data
-        // const formData = {
-        //     name: document.getElementById('contactName').value.trim(),
-        //     email: document.getElementById('contactEmail').value.trim(),
-        //     phone: document.getElementById('contactPhone').value.trim(),
-        //     subject: document.getElementById('contactSubject').value,
-        //     message: document.getElementById('contactMessage').value.trim()
-        // };
-        
-        // Simple client-side validation
-        // if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-        //     showMessage('Veuillez remplir tous les champs obligatoires', 'error');
-        //     submitBtn.disabled = false;
-        //     submitBtn.innerHTML = originalBtnText;
-        //     return;
-        // }
-        
-        // Send AJAX request
-        // const xhr = new XMLHttpRequest();
-        // xhr.open('POST', 'send_email.php', true);
-        // xhr.setRequestHeader('Content-Type', 'application/json');
-        
-        // xhr.onload = function() {
-        //     submitBtn.disabled = false;
-        //     submitBtn.innerHTML = originalBtnText;
-            
-        //     try {
-        //         const response = JSON.parse(xhr.responseText);
-                
-        //         if (xhr.status >= 200 && xhr.status < 300) {
-        //             if (response.success) {
-        //                 showMessage(response.message || 'Message envoyé avec succès!', 'success');
-        //                 document.getElementById('contactForm').reset();
-        //             } else {
-        //                 showMessage(response.message || 'Erreur lors de l\'envoi', 'error');
-        //             }
-        //         } else {
-        //             showMessage(response.message || `Erreur ${xhr.status}: ${xhr.statusText}`, 'error');
-        //         }
-        //     } catch (e) {
-        //         console.error('Parsing error:', e, xhr.responseText);
-        //         showMessage('Erreur inattendue - veuillez réessayer', 'error');
-        //     }
-        // };
-        
-        // xhr.onerror = function() {
-        //     submitBtn.disabled = false;
-        //     submitBtn.innerHTML = originalBtnText;
-        //     showMessage('Erreur de connexion - vérifiez votre réseau', 'error');
-        // };
-        
-        // xhr.send(JSON.stringify(formData));
-    // });
-    
+
     function showMessage(text, type) {
         const formMessage = document.getElementById('formMessage');
         formMessage.textContent = text;
