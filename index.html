@@ -1853,7 +1853,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://smtpjs.com/v3/smtp.js"></script>
+   
     <script >document.addEventListener('DOMContentLoaded', function() {
         // Préloader
         const preloader = document.querySelector('.preloader');
@@ -2100,38 +2100,10 @@ input[type="range"]::-webkit-slider-thumb:hover {
                 return;
             }
             
-            // Envoi avec SMTP.js
-            Email.send({
-                SecureToken: "YOUR_SECURE_TOKEN", // À remplacer par votre token
-                To: 'victoiretogbe43@gmail.com',
-                From: email,
-                Subject: `Message de ${name} - ${subject}`,
-                Body: `
-                    <h2>Nouveau message de contact</h2>
-                    <p><strong>Nom :</strong> ${name}</p>
-                    <p><strong>Email :</strong> ${email}</p>
-                    <p><strong>Sujet :</strong> ${subject}</p>
-                    <p><strong>Message :</strong></p>
-                    <p>${message}</p>
-                `
-            }).then(
-                () => {
-                    formMessage.textContent = 'Message envoyé avec succès ! Nous vous contacterons rapidement.';
-                    formMessage.className = 'form-message success';
-                    form.reset();
-                    
-                    // Masquer le message après 5 secondes
-                    setTimeout(() => {
-                        formMessage.style.display = 'none';
-                    }, 5000);
-                },
-                (error) => {
-                    formMessage.textContent = 'Une erreur est survenue. Veuillez réessayer ou nous contacter par téléphone.';
-                    formMessage.className = 'form-message error';
-                    console.error('Error:', error);
-                }
-            );
-        });
+            
+                
+           
+                
         
         // Animation GSAP
         gsap.registerPlugin(ScrollTrigger);
@@ -2201,35 +2173,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
         
-        // Envoi AJAX
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'send_email.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
         
-        xhr.onload = function() {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
-            
-            if (this.status === 200) {
-                const response = JSON.parse(this.responseText);
-                if (response.success) {
-                    showMessage('Message envoyé avec succès !', 'success');
-                    document.getElementById('contactForm').reset();
-                } else {
-                    showMessage('Erreur: ' + response.message, 'error');
-                }
-            } else {
-                showMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
-            }
-        };
-        
-        xhr.onerror = function() {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer le message';
-            showMessage('Erreur de connexion. Veuillez réessayer.', 'error');
-        };
-        
-        xhr.send(JSON.stringify(formData));
     });
     
     function showMessage(text, type) {
@@ -2276,41 +2220,9 @@ input[type="range"]::-webkit-slider-thumb:hover {
             return;
         }
         
-        // Send AJAX request
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'send_email.php', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        
-        xhr.onload = function() {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            
-            try {
-                const response = JSON.parse(xhr.responseText);
-                
-                if (xhr.status >= 200 && xhr.status < 300) {
-                    if (response.success) {
-                        showMessage(response.message || 'Message envoyé avec succès!', 'success');
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        showMessage(response.message || 'Erreur lors de l\'envoi', 'error');
-                    }
-                } else {
-                    showMessage(response.message || `Erreur ${xhr.status}: ${xhr.statusText}`, 'error');
-                }
-            } catch (e) {
-                console.error('Parsing error:', e, xhr.responseText);
-                showMessage('Erreur inattendue - veuillez réessayer', 'error');
-            }
-        };
-        
-        xhr.onerror = function() {
-            submitBtn.disabled = false;
-            submitBtn.innerHTML = originalBtnText;
-            showMessage('Erreur de connexion - vérifiez votre réseau', 'error');
-        };
-        
-        xhr.send(JSON.stringify(formData));
+      
+   
+               
     });
     
     function showMessage(text, type) {
