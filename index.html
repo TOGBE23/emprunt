@@ -8,31 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
-    <!-- SEO Dynamique -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const metaDesc = document.createElement('meta');
-        metaDesc.name = "description";
-        metaDesc.content = "Crédit-Finance - Solutions de prêt immobilier, crédit auto et consommation. Obtenez des taux compétitifs dès 2.45% avec notre simulateur en ligne.";
-        document.head.appendChild(metaDesc);
+    
         
-        const canonical = document.createElement('link');
-        canonical.rel = "canonical";
-        canonical.href = "https://votre-site.vercel.app";
-        document.head.appendChild(canonical);
         
-        // Facebook Meta Tags
-        const ogTitle = document.createElement('meta');
-        ogTitle.property = "og:title";
-        ogTitle.content = "LuxFinance - Solutions de Prêt Haut de Gamme";
-        document.head.appendChild(ogTitle);
         
-        const ogDesc = document.createElement('meta');
-        ogDesc.property = "og:description";
-        ogDesc.content = "Obtenez le financement idéal pour vos projets avec nos solutions sur mesure";
-        document.head.appendChild(ogDesc);
-    });
-    </script>
     
 </head>
 <style>
@@ -1777,36 +1756,7 @@ input[type="range"]::-webkit-slider-thumb:hover {
             </div>
         </div>
     </section>
-    <!-- Nouvelle Section Commentaires -->
-            <div class="comments-section" style="margin-top: 60px; background: white; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary);">Laissez votre avis</h3>
-                
-                <!-- Système de Likes -->
-                <div class="like-system" style="text-align: center; margin-bottom: 30px;">
-                    <p style="font-size: 1.1rem; margin-bottom: 15px;">Cet article vous a-t-il été utile ?</p>
-                    <button id="like-btn" style="background: none; border: none; cursor: pointer; font-size: 2rem;">
-                        👍 <span id="like-count">0</span>
-                    </button>
-                    <button id="dislike-btn" style="background: none; border: none; cursor: pointer; font-size: 2rem; margin-left: 20px;">
-                        👎 <span id="dislike-count">0</span>
-                    </button>
-                </div>
-                
-                <!-- Intégration Facebook Comments -->
-                <div class="fb-comments" 
-                     data-href="https://votre-site.vercel.app" 
-                     data-width="100%" 
-                     data-numposts="5"
-                     data-order-by="reverse_time"
-                     style="margin-top: 30px;">
-                </div>
-                
-                <!-- Alternative Disqus -->
-                <div id="disqus_thread" style="margin-top: 40px;"></div>
-            </div>
-        </div>
-    </section>
-
+     
     <!-- CTA Section -->
     <section class="cta-section">
         <div class="container">
@@ -1987,73 +1937,14 @@ input[type="range"]::-webkit-slider-thumb:hover {
         <i class="fas fa-arrow-up"></i>
     </a>
 
-    <!-- Scripts Mises à Jour -->
+   
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-    <!-- Firebase pour le système de Likes -->
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+   
     
  
     <script >
-        // Initialisation Firebase
-    const firebaseConfig = {
-        apiKey: "AIzaSyVotreCleAPI",
-        authDomain: "votre-projet.firebaseapp.com",
-        databaseURL: "https://votre-projet.firebaseio.com",
-        projectId: "votre-projet",
-        storageBucket: "votre-projet.appspot.com",
-        messagingSenderId: "123456789",
-        appId: "1:123456789:web:abcdef123456"
-    };
-    
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-
-    // Système de Likes
-    document.addEventListener('DOMContentLoaded', function() {
-        const likeBtn = document.getElementById('like-btn');
-        const dislikeBtn = document.getElementById('dislike-btn');
-        
-        // Charger les compteurs initiaux
-        database.ref('likes').on('value', (snapshot) => {
-            const data = snapshot.val() || { like: 0, dislike: 0 };
-            document.getElementById('like-count').textContent = data.like;
-            document.getElementById('dislike-count').textContent = data.dislike;
-        });
-        
-        // Gestion des clics
-        likeBtn.addEventListener('click', () => {
-            database.ref('likes/like').transaction((current) => (current || 0) + 1);
-        });
-        
-        dislikeBtn.addEventListener('click', () => {
-            database.ref('likes/dislike').transaction((current) => (current || 0) + 1);
-        });
-    });
-
-    // Intégration Facebook
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v12.0&appId=123456789&autoLogAppEvents=1";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-
-    // Configuration Disqus
-    var disqus_config = function () {
-        this.page.url = "https://votre-site.vercel.app";
-        this.page.identifier = "luxfinance-comments";
-    };
-    
-    (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://votre-site.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
         document.addEventListener('DOMContentLoaded', function() {
         // Préloader
         const preloader = document.querySelector('.preloader');
@@ -2358,9 +2249,6 @@ input[type="range"]::-webkit-slider-thumb:hover {
     }</script>
     <!-- Google Analytics -->
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXX-Y');
+    
 </body>
 </html>
